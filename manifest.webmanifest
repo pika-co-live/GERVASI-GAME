@@ -1,0 +1,1 @@
+{"name":"SECRET PARTY","short_name":"Secret Party","description":"3 jeux multijoueurs entre amis","start_url":"/","scope":"/","display":"standalone","background_color":"#0a081b","theme_color":"#0b0920","icons":[{"src":"/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"},{"src":"/apple-touch-icon.png","sizes":"180x180","type":"image/png"}]}
