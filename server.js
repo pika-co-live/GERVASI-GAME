@@ -3,6 +3,7 @@ import http from 'node:http';
 import { Server } from 'socket.io';
 import { randomInt, randomUUID } from 'node:crypto';
 import { mountFootManager } from './foot-manager.js';
+import { mountCasino } from './casino.js';
 
 const app = express();
 app.disable('x-powered-by');
@@ -12,6 +13,7 @@ app.get('/health', (_req,res) => res.json({ok:true}));
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, { maxHttpBufferSize: 10000, cors: { origin: false } });
 mountFootManager(app,io);
+mountCasino(io);
 const rooms = new Map();
 const MAX_PLAYERS=5, MIN_PLAYERS=2;
 const WORDS=[['Plage','Piscine'],['Avion','Hélicoptère'],['Pizza','Burger'],['Cinéma','Théâtre'],['Chat','Chien'],['Café','Thé'],['Montagne','Forêt'],['Pomme','Poire'],['Train','Métro'],['Guitare','Piano'],['Soleil','Lune'],['Basket','Football'],['Bateau','Sous-marin'],['Glace','Gâteau'],['Hôtel','Camping'],['Tennis','Padel'],['Livre','Journal'],['Voiture','Moto'],['Paris','Londres'],['Chocolat','Caramel']];
